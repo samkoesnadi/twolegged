@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<robot name="robot_to_export" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="hip_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="hip_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="hip_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="hip_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="hip_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="hip_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="knee_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="knee_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="knee_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
