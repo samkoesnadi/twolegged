@@ -1,9 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="robot_to_export" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find robot_to_export_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find robot_to_export_description)/urdf/robot_to_export.trans" />
-<xacro:include filename="$(find robot_to_export_description)/urdf/robot_to_export.gazebo" />
+
+<!-- Define materials -->
+<material name="wood">
+  <color rgba="0.588 0.435 0.200 1.000"/>
+</material>
+
+
+<!-- Define the links -->
+
 <link name="base_link">
   <inertial>
     <origin xyz="0.06959999984396244 0.03221502682625722 -0.05238610106605037" rpy="0 0 0"/>
@@ -15,7 +21,7 @@
     <geometry>
       <mesh filename="package://robot_to_export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -36,7 +42,7 @@
     <geometry>
       <mesh filename="package://robot_to_export_description/meshes/hip-thigh-joint_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.0696 -0.029307 0.001" rpy="0 0 0"/>
@@ -57,7 +63,7 @@
     <geometry>
       <mesh filename="package://robot_to_export_description/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.1386 -0.029307 -0.069" rpy="0 0 0"/>
@@ -78,7 +84,7 @@
     <geometry>
       <mesh filename="package://robot_to_export_description/meshes/shin_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.1586 0.560693 -0.069" rpy="0 0 0"/>
