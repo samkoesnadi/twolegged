@@ -19,14 +19,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -40,14 +40,14 @@
   <visual>
     <origin xyz="-0.0696 -0.029307 0.001" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/hip-thigh-joint_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/hip-thigh-joint_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.0696 -0.029307 0.001" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/hip-thigh-joint_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/hip-thigh-joint_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -61,14 +61,14 @@
   <visual>
     <origin xyz="-0.1386 -0.029307 -0.069" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.1386 -0.029307 -0.069" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -82,14 +82,14 @@
   <visual>
     <origin xyz="-0.1586 0.560693 -0.069" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/shin_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/shin_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="wood"/>
   </visual>
   <collision>
     <origin xyz="-0.1586 0.560693 -0.069" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_to_export_description/meshes/shin_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://resources/meshes/shin_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>

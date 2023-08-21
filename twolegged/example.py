@@ -38,7 +38,7 @@ startPos = [0,0,1]
 startOrientation = pybullet.getQuaternionFromEuler([math.pi / 2, 0, 0], physicsClientId=client_id)
 
 robot = pybullet.loadURDF(
-  'urdf/robot_to_export.xacro',
+  'twolegged/resources/urdf/robot_to_export.xacro',
   startPos,
   startOrientation,
   flags=pybullet.URDF_USE_SELF_COLLISION
@@ -51,8 +51,6 @@ joints = {}
 for i in range(pybullet.getNumJoints(robot, physicsClientId=client_id)):
   joint = Joint(*pybullet.getJointInfo(robot, i, physicsClientId=client_id))
   joints[joint.name] = joint
-
-
 
 def run_main():
   start_time = time.time()
