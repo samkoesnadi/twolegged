@@ -17,7 +17,7 @@ class TwoLeggedEnv(gym.Env):
 
     CAMERA_REFRESH_PERIOD = 1/15
     BOUNDARY = 15
-    GOAL_Z_POS = 1.1
+    GOAL_Z_POS = 1.3
     MAX_REWARD = 1
 
     def __init__(self, render_mode=None, render_fps=30):
@@ -86,13 +86,14 @@ class TwoLeggedEnv(gym.Env):
         reward = self.MAX_REWARD * math.sin(
             math.pi / 2 * min(1, robot_pos[4] / self.GOAL_Z_POS)
         )
+
         # reward = 0
         # if robot_pos[4] >= 0.1:  # TODO
         #     reward = self.MAX_REWARD
 
         # Done by running off boundaries
         if (robot_pos[0] >= self.BOUNDARY or robot_pos[0] <= -self.BOUNDARY or
-                robot_pos[1] >= self.BOUNDARY or robot_pos[1] <= -self.BOUNDARY):
+                robot_pos[2] >= self.BOUNDARY or robot_pos[2] <= -self.BOUNDARY):
             self.truncated = True
 
         # # Done by falling down or contact

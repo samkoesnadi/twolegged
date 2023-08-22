@@ -16,7 +16,7 @@ from stable_baselines3.common.noise import NormalActionNoise, OrnsteinUhlenbeckA
 vec_env = make_vec_env("TwoLegged-v0", n_envs=1, env_kwargs=dict(render_mode=None, render_fps=30))
 
 n_actions = vec_env.action_space.shape[-1]
-action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
+action_noise = OrnsteinUhlenbeckActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 # Initialize the model
 model = TD3(
     "MultiInputPolicy",
@@ -25,7 +25,9 @@ model = TD3(
 )
 
 while True:
-    if os.path.exists("test_save.zip"): model.load("test_save", env=vec_env)
+    if os.path.exists("test_save.zip"):
+        model = model.load("test_save", env=vec_env)
+        print("model loaded")
     model.learn(total_timesteps=100000, progress_bar=True)
     model.save("test_save")
 

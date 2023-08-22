@@ -14,7 +14,7 @@ class Robot:
 
   def __init__(self, client_id):
     self.client_id = client_id
-    startPos = [0,0,1.5]
+    startPos = [0,0,1.3]
     startOrientation = pybullet.getQuaternionFromEuler(
       [math.pi / 2, 0, 0], physicsClientId=self.client_id
     )
