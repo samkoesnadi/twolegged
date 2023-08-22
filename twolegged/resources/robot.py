@@ -14,7 +14,7 @@ class Robot:
 
   def __init__(self, client_id):
     self.client_id = client_id
-    startPos = [0,0,1]
+    startPos = [0,0,1.5]
     startOrientation = pybullet.getQuaternionFromEuler(
       [math.pi / 2, 0, 0], physicsClientId=self.client_id
     )
@@ -36,13 +36,13 @@ class Robot:
       self.joints[joint.name] = joint
 
   def get_ids(self):
-    return self.car, self.client
+    return self.robot, self.client_id
 
   def apply_action(self, action):
     for i_joint, joint_name in enumerate(self.KNOWN_JOINTS):
       pybullet.setJointMotorControl2(
         self.robot,
-        self.joint[joint_name].index,
+        self.joints[joint_name].index,
         pybullet.POSITION_CONTROL,
         action[i_joint],
         physicsClientId=self.client_id
@@ -60,7 +60,7 @@ class Robot:
   def get_whole_body_observation(self):
     position, orientation = pybullet.getBasePositionAndOrientation(self.robot)
     roll, pitch, yaw = pybullet.getEulerFromQuaternion(orientation)
-    return position + [roll, pitch, yaw]
+    return [position[0], roll, position[1], pitch, position[2], yaw]
 
   def check_contact(self):
     contact_points = pybullet.getClosestPoints(

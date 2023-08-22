@@ -67,10 +67,10 @@ def run_main():
       # print(position, velocity)
 
     # get whole body position
-    # position, velocity = pybullet.getBasePositionAndOrientation(robot)
-    # x, y, z = position
-    # roll, pitch, yaw = pybullet.getEulerFromQuaternion(orientation)
-    # print(f"{i:3}: x={x:0.10f}, y={y:0.10f}, z={z:0.10f}), roll={roll:0.10f}, pitch={pitch:0.10f}, yaw={yaw:0.10f}")
+    position, orientation = pybullet.getBasePositionAndOrientation(robot)
+    x, y, z = position
+    roll, pitch, yaw = pybullet.getEulerFromQuaternion(orientation)
+    print(f"{i:3}: x={x:0.10f}, y={y:0.10f}, z={z:0.10f}), roll={roll:0.10f}, pitch={pitch:0.10f}, yaw={yaw:0.10f}")
 
     contact_points = pybullet.getClosestPoints(robot, robot, 1, physicsClientId=client_id)
     is_contact = False
