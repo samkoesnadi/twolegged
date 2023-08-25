@@ -31,20 +31,20 @@ class TwoLeggedEnv(gym.Env):
             shape=(3,),
             dtype=np.float32
         )
-        self.observation_space = gym.spaces.Dict({
-            "joints": gym.spaces.Box(
-                low=np.array([-math.pi * 2, -self.BOUNDARY] * 3, dtype=np.float32),
-                high=np.array([math.pi * 2, self.BOUNDARY] * 3, dtype=np.float32),
-            ),
-            "body_z": gym.spaces.Box(
-                low=np.array([-self.BOUNDARY] * 1, dtype=np.float32),
-                high=np.array([self.BOUNDARY] * 1, dtype=np.float32),
-            )
-        })
-        # self.observation_space = gym.spaces.Box(
-        #     low=np.array([-math.pi * 2, -self.BOUNDARY] * 3, dtype=np.float32),
-        #     high=np.array([math.pi * 2, self.BOUNDARY] * 3, dtype=np.float32),
-        # )
+        # self.observation_space = gym.spaces.Dict({
+        #     "joints": gym.spaces.Box(
+        #         low=np.array([-math.pi * 2, -self.BOUNDARY] * 3, dtype=np.float32),
+        #         high=np.array([math.pi * 2, self.BOUNDARY] * 3, dtype=np.float32),
+        #     ),
+        #     "body_z": gym.spaces.Box(
+        #         low=np.array([-self.BOUNDARY] * 1, dtype=np.float32),
+        #         high=np.array([self.BOUNDARY] * 1, dtype=np.float32),
+        #     )
+        # })
+        self.observation_space = gym.spaces.Box(
+            low=np.array([-math.pi * 2, -self.BOUNDARY] * 3, dtype=np.float32),
+            high=np.array([math.pi * 2, self.BOUNDARY] * 3, dtype=np.float32),
+        )
         self.client_id = pybullet.connect(pybullet.DIRECT if render_mode != "human" else pybullet.GUI)
         if render_mode == "human":
             pybullet.configureDebugVisualizer(pybullet.COV_ENABLE_SEGMENTATION_MARK_PREVIEW, 1, physicsClientId=self.client_id)
@@ -109,7 +109,7 @@ class TwoLeggedEnv(gym.Env):
             "joints": np.array(observation["joints"]),
             "body_z": np.array([observation["body"][4]])
         }
-        return obs, reward, self.terminated, self.truncated, info
+        return obs["joints"], reward, self.terminated, self.truncated, info
 
     def reset(self, seed=None, options=None):
         # We need the following line to seed self.np_random
@@ -135,7 +135,7 @@ class TwoLeggedEnv(gym.Env):
         }
 
         # Get observation to return
-        return obs, info
+        return obs["joints"], info
 
     def render(self):
         pass
