@@ -14,9 +14,12 @@ from stable_baselines3.common.vec_env import VecNormalize, DummyVecEnv
 from stable_baselines3.common.noise import NormalActionNoise, OrnsteinUhlenbeckActionNoise
 
 
-IS_TRAIN = False
+IS_TRAIN = True
 
-vec_env = make_vec_env("TwoLegged-v0", n_envs=1 if IS_TRAIN else 1, env_kwargs=dict(render_mode=None if IS_TRAIN else "human", render_fps=30))
+vec_env = make_vec_env(
+      "TwoLegged-v0", n_envs=1 if IS_TRAIN else 1, env_kwargs=dict(render_mode=None if IS_TRAIN else "human", render_fps=30),
+      seed=42,
+)
 vec_env = VecNormalize(
     vec_env, norm_obs=True, norm_reward=True,
     clip_obs=15.
